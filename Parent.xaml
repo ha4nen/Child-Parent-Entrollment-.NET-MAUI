@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Parent"
+             Title="Parent">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+                <Label Text="Name" HorizontalTextAlignment="Center"  Margin="12" Padding="10"/>
+                <Label Text="Last Name"  HorizontalTextAlignment="Center"  Margin="12" Padding="10"/>
+                <Label Text="Tel. No."  HorizontalTextAlignment="Center"  Margin="12" Padding="10"/>
+            </StackLayout>
+            <StackLayout>
+                <Entry x:Name="P_Name"  Margin="10"/>
+                <Entry x:Name="P_L_Name"  Margin="10"/>
+                <Entry x:Name="P_Tel"  Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+            <RadioButton x:Name="Male_RadioButton" GroupName="Gender" Content="Mother" CheckedChanged="Gender_RadioButton_CheckedChanged" Margin="12"/>
+            <RadioButton x:Name="Female_RadioButton" GroupName="Gender" Content="Father" CheckedChanged="Gender_RadioButton_CheckedChanged" Margin="12"/>
+        </StackLayout>
+
+
+        
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button x:Name="Button_Add" Text="Add" Clicked="Button_Add_Clicked" BackgroundColor="Green" Margin="10" Padding="30,18"/>
+
+        </StackLayout>
+
+        <ScrollView>
+            <ListView x:Name="P_List_View" ItemTapped="P_List_View_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label Text="{Binding P_Id}" Margin="5"/>
+                                <Label Text="{Binding P_Name}" Margin="5"/>
+                                <Label Text="{Binding P_L_Name}" Margin="5"/>
+                                <Label Text="{Binding P_Tel}" Margin="5"/>
+                                <Label Text="{Binding P_Mother_Father}" Margin="5"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button x:Name="Button_delete" Text="Delete" Clicked="Button_delete_Clicked" BackgroundColor="Green" Margin="10" Padding="30,18"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

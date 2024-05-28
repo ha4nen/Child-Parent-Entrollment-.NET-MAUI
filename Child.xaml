@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Child"
+             Title="Child">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+                <Label Text="Name" HorizontalTextAlignment="Center"  Margin="12" Padding="10"/>
+                <Label Text="Last Name"  HorizontalTextAlignment="Center"  Margin="12" Padding="10"/>
+            </StackLayout>
+            <StackLayout>
+                <Entry x:Name="C_Name"  Margin="10"/>
+                <Entry x:Name="C_L_Name"  Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+            <RadioButton x:Name="Male_RadioButton" GroupName="Gender" Content="Male" CheckedChanged="Gender_RadioButton_CheckedChanged" Margin="12"/>
+                <RadioButton x:Name="Female_RadioButton" GroupName="Gender" Content="Female" CheckedChanged="Gender_RadioButton_CheckedChanged" Margin="12"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Image Source="football.png" WidthRequest="40" HeightRequest="40" Margin="20"/>
+                <Image Source="sail.png" WidthRequest="40" HeightRequest="40" Margin="10"/>
+            </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center" >
+            <Label Text="Team" HorizontalTextAlignment="Center"  Margin="12" Padding="10"/>
+                <CheckBox/>
+                <CheckBox Margin="10"/>
+            </StackLayout>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button x:Name="Button_Add" Text="Add" Clicked="Button_Add_Clicked" BackgroundColor="RED" Margin="10" Padding="30,18"/>
+
+        </StackLayout>
+
+        <ScrollView>
+            <ListView x:Name="C_List_View" ItemTapped="C_List_View_ItemTapped" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label Text="{Binding C_Id}" Margin="5"/>
+                                <Label Text="{Binding C_Name}" Margin="5"/>
+                                <Label Text="{Binding C_L_Name}" Margin="5"/>
+                                <Label Text="{Binding C_Gender}" Margin="5"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Button x:Name="Button_delete" Text="Delete" Clicked="Button_delete_Clicked" BackgroundColor="RED" Margin="10" Padding="30,18"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
